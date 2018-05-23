@@ -88,16 +88,16 @@ window.onload = function(){
             switch(old_direction)
             {
                 case 'right':
-                    nextPosition[0] += 1;
+                    nextPosition[0] += 5;
                     break;
                 case 'left':
-                    nextPosition[0] -= 1;
+                    nextPosition[0] -= 5;
                     break;
                 case 'up':
-                    nextPosition[1] -= 1;
+                    nextPosition[1] -= 5;
                     break;
                 case 'down':
-                    nextPosition[1] += 1;
+                    nextPosition[1] += 5;
                     break;    
             }
             pos.unshift(nextPosition);
