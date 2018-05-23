@@ -261,7 +261,7 @@ window.onload = function(){
             var img = new Image();
             img.onload = function()
             {
-                ctx.drawImage(img,300,300,200,200);
+                ctx.drawImage(img,850,600,850,600);
                 ctx.fillRect(410,330,10,10);
             }
             img.src ='snake.png';
