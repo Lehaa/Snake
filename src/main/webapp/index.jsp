@@ -1,301 +1,315 @@
-	<html>
-		<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Feed the Snake v 1.1 beta</title>
-		<style>
-		body
-		{
-			background:#000;
-			color:#FFF;
-		}
-		canvas
-		{
-			background:#FFF;
-		}
-		#controls
-		{
-			position:absolute;
-			top:0;
-			right:0;
-			margin:10px;
-		}
-		</style>
-		<script type="text/javascript">
-		var snake = window.snake || {};
-		function launchFullscreen(element) {
-		  if(element.requestFullscreen) {
-			element.requestFullscreen();
-		  } else if(element.mozRequestFullScreen) {
-			element.mozRequestFullScreen();
-		  } else if(element.webkitRequestFullscreen) {
-			element.webkitRequestFullscreen();
-		  } else if(element.msRequestFullscreen) {
-			element.msRequestFullscreen();
-		  }
-		}
-		window.onload = function(){
-			document.addEventListener("fullscreenchange", function(){snake.game.adjust();});
-			document.addEventListener("webkitfullscreenchange", function(){snake.game.adjust();});
-			document.addEventListener("mozfullscreenchange", function(){snake.game.adjust();});
-			document.addEventListener("MSFullscreenChange", function(){snake.game.adjust();});
-		
-			snake.game = (function()
-			{
-				var canvas = document.getElementById('canvas');
-				var ctx = canvas.getContext('2d');
-				var status=false;
-				var score = 0;
-				var old_direction = 'right';
-				var direction = 'right';
-				var block = 10;
-				var score = 0;
-				var refresh_rate = 250;
-				var pos = [[5,1],[4,1],[3,1],[2,1],[1,1]];
-				var scoreboard = document.getElementById('scoreboard');
-				var control = document.getElementById('controls');
-				var keys = {
-					37 : 'left',
-					38 : 'up',
-					39 : 'right',
-					40 : 'down'
-					};
-				function adjust()
-				{
-					if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement )
-					{
-						canvas.width=window.innerWidth;
-						canvas.height=window.innerHeight;
-						control.style.display='none';
+<html>
+	<body>
+			<p>: <script language="JavaScript">
+					var x = "krestik.gif";
+					var o = "nolik.gif";
+					var blank = "blank.jpg";
+					var pause = 0;
+					var all = 0;
+					var a = 0;
+					var b = 0;
+					var c = 0;
+					var d = 0;
+					var e = 0;
+					var f = 0;
+					var g = 0;
+					var h = 0;
+					var i = 0;
+					var temp="";
+					var ok = 0;
+					var cf = 0;
+					var choice=9;
+					var aRandomNumber = 0;
+					var comp = 0; 
+					var t = 0;
+					var wn = 0;
+					var ls = 0;
+					var ts = 0;
+					function logicOne() {
+					if ((a==1)&&(b==1)&&(c==1)) all=1;
+					if ((a==1)&&(d==1)&&(g==1)) all=1;
+					if ((a==1)&&(e==1)&&(i==1)) all=1;
+					if ((b==1)&&(e==1)&&(h==1)) all=1;
+					if ((d==1)&&(e==1)&&(f==1)) all=1;
+					if ((g==1)&&(h==1)&&(i==1)) all=1;
+					if ((c==1)&&(f==1)&&(i==1)) all=1;
+					if ((g==1)&&(e==1)&&(c==1)) all=1;
+					if ((a==2)&&(b==2)&&(c==2)) all=2;
+					if ((a==2)&&(d==2)&&(g==2)) all=2;
+					if ((a==2)&&(e==2)&&(i==2)) all=2;
+					if ((b==2)&&(e==2)&&(h==2)) all=2;
+					if ((d==2)&&(e==2)&&(f==2)) all=2;
+					if ((g==2)&&(h==2)&&(i==2)) all=2;
+					if ((c==2)&&(f==2)&&(i==2)) all=2;
+					if ((g==2)&&(e==2)&&(c==2)) all=2;
+					if ((a != 0)&&(b != 0)&&(c != 0)&&(d != 0)&&(e != 0)&&(f != 0)&&(g != 0)&&(h != 0)&&(i != 0)&&(all == 0)) all = 3;
+					} 
+					function logicTwo() {
+					if ((a==2)&&(b==2)&&(c== 0)&&(temp=="")) temp="C";
+					if ((a==2)&&(b== 0)&&(c==2)&&(temp=="")) temp="B";
+					if ((a== 0)&&(b==2)&&(c==2)&&(temp=="")) temp="A";
+					if ((a==2)&&(d==2)&&(g== 0)&&(temp=="")) temp="G";
+					if ((a==2)&&(d== 0)&&(g==2)&&(temp=="")) temp="D";
+					if ((a== 0)&&(d==2)&&(g==2)&&(temp=="")) temp="A";
+					if ((a==2)&&(e==2)&&(i== 0)&&(temp=="")) temp="I";
+					if ((a==2)&&(e== 0)&&(i==2)&&(temp=="")) temp="E";
+					if ((a== 0)&&(e==2)&&(i==2)&&(temp=="")) temp="A";
+					if ((b==2)&&(e==2)&&(h== 0)&&(temp=="")) temp="H";
+					if ((b==2)&&(e== 0)&&(h==2)&&(temp=="")) temp="E";
+					if ((b== 0)&&(e==2)&&(h==2)&&(temp=="")) temp="B";
+					if ((d==2)&&(e==2)&&(f== 0)&&(temp=="")) temp="F";
+					if ((d==2)&&(e== 0)&&(f==2)&&(temp=="")) temp="E";
+					if ((d== 0)&&(e==2)&&(f==2)&&(temp=="")) temp="D";
+					if ((g==2)&&(h==2)&&(i== 0)&&(temp=="")) temp="I";
+					if ((g==2)&&(h== 0)&&(i==2)&&(temp=="")) temp="H";
+					if ((g== 0)&&(h==2)&&(i==2)&&(temp=="")) temp="G";
+					if ((c==2)&&(f==2)&&(i== 0)&&(temp=="")) temp="I";
+					if ((c==2)&&(f== 0)&&(i==2)&&(temp=="")) temp="F";
+					if ((c== 0)&&(f==2)&&(i==2)&&(temp=="")) temp="C";
+					if ((g==2)&&(e==2)&&(c== 0)&&(temp=="")) temp="C";
+					if ((g==2)&&(e== 0)&&(c==2)&&(temp=="")) temp="E";
+					if ((g== 0)&&(e==2)&&(c==2)&&(temp=="")) temp="G";
 					}
-					else
-					{
-						canvas.width=850;
-						canvas.height=600;
-						control.style.display='inline';
+					function logicThree() {
+					if ((a==1)&&(b==1)&&(c==0)&&(temp=="")) temp="C";
+					if ((a==1)&&(b==0)&&(c==1)&&(temp=="")) temp="B";
+					if ((a==0)&&(b==1)&&(c==1)&&(temp=="")) temp="A";
+					if ((a==1)&&(d==1)&&(g==0)&&(temp=="")) temp="G";
+					if ((a==1)&&(d==0)&&(g==1)&&(temp=="")) temp="D";
+					if ((a==0)&&(d==1)&&(g==1)&&(temp=="")) temp="A";
+					if ((a==1)&&(e==1)&&(i==0)&&(temp=="")) temp="I";
+					if ((a==1)&&(e==0)&&(i==1)&&(temp=="")) temp="E";
+					if ((a==0)&&(e==1)&&(i==1)&&(temp=="")) temp="A";
+					if ((b==1)&&(e==1)&&(h==0)&&(temp=="")) temp="H";
+					if ((b==1)&&(e==0)&&(h==1)&&(temp=="")) temp="E";
+					if ((b==0)&&(e==1)&&(h==1)&&(temp=="")) temp="B";
+					if ((d==1)&&(e==1)&&(f==0)&&(temp=="")) temp="F";
+					if ((d==1)&&(e==0)&&(f==1)&&(temp=="")) temp="E";
+					if ((d==0)&&(e==1)&&(f==1)&&(temp=="")) temp="D";
+					if ((g==1)&&(h==1)&&(i==0)&&(temp=="")) temp="I";
+					if ((g==1)&&(h==0)&&(i==1)&&(temp=="")) temp="H";
+					if ((g==0)&&(h==1)&&(i==1)&&(temp=="")) temp="G";
+					if ((c==1)&&(f==1)&&(i==0)&&(temp=="")) temp="I";
+					if ((c==1)&&(f==0)&&(i==1)&&(temp=="")) temp="F";
+					if ((c==0)&&(f==1)&&(i==1)&&(temp=="")) temp="C";
+					if ((g==1)&&(e==1)&&(c==0)&&(temp=="")) temp="C";
+					if ((g==1)&&(e==0)&&(c==1)&&(temp=="")) temp="E";
+					if ((g==0)&&(e==1)&&(c==1)&&(temp=="")) temp="G";
 					}
-				}
-				var food = [Math.round(Math.random(4)*(canvas.width - 10)), Math.round(Math.random(4)*(canvas.height - 10)),];
-				function todraw()
-				{
-					for(var i = 0; i < pos.length; i++)
-					{
-						draw(pos[i]);
+					function clearOut() {
+					document.game.you.value="0";
+					document.game.computer.value="0";
+					document.game.ties.value="0";
 					}
-				}
-				function giveLife()
-				{
-					var nextPosition = pos[0].slice();
-					switch(old_direction)
-					{
-						case 'right':
-							nextPosition[0] += 1;
-							break;
-						case 'left':
-							nextPosition[0] -= 1;
-							break;
-						case 'up':
-							nextPosition[1] -= 1;
-							break;
-						case 'down':
-							nextPosition[1] += 1;
-							break;    
+					function checkSpace() {
+					if ((temp=="A")&&(a==0)) {
+					ok=1;
+					if (cf==0) a=1;
+					if (cf==1) a=2;
 					}
-					pos.unshift(nextPosition);
-					pos.pop();
-				}
-				function grow()
-				{
-					var nextPosition = pos[0].slice();
-					switch(old_direction)
-					{
-						case 'right':
-							nextPosition[0] += 1;
-							break;
-						case 'left':
-							nextPosition[0] -= 1;
-							break;
-						case 'up':
-							nextPosition[1] -= 1;
-							break;
-						case 'down':
-							nextPosition[1] += 1;
-							break;    
+					if ((temp=="B")&&(b==0)) {
+					ok=1;
+					if (cf==0) b=1;
+					if (cf==1) b=2;
 					}
-					pos.unshift(nextPosition);
-				}
-				function loop()
-				{
-					ctx.clearRect(0,0,canvas.width,canvas.height);
-					todraw();
-					giveLife();
-					feed();
-					if(is_catched(pos[0][0]*block,pos[0][1]*block,block,block,food[0],food[1],10,10))
-					{
-						score += 10;
-						createfood();
-						scoreboard.innerHTML = score;
-						grow();
-						if(refresh_rate > 100)
-						{
-							refresh_rate -=5;
-						}
+					if ((temp=="C")&&(c==0)) {
+					ok=1;
+					if (cf==0) c=1;
+					if (cf==1) c=2;
 					}
-					snake.game.status = setTimeout(function() { loop(); },refresh_rate);
-				}
-				window.onkeydown = function(event){
-					 direction = keys[event.keyCode];
-						if(direction)
-						{
-							setWay(direction);
-							event.preventDefault();
-						}
-					};
-				function setWay(direction)
-				{
-					switch(direction)
-					{
-						case 'left':
-							if(old_direction!='right')
-							{
-								old_direction = direction;
-							}
-							break;
-						case 'right':
-							if(old_direction!='left')
-							{
-								old_direction = direction;
-							}
-							break;
-						case 'up':
-							if(old_direction!='down')
-							{
-								old_direction = direction;
-							}
-							break;
-						case 'down':
-							if(old_direction!='up')
-							{
-								old_direction = direction;
-							}
-							break;
+					if ((temp=="D")&&(d==0)) {
+					ok=1;
+					if (cf==0) d=1;
+					if (cf==1) d=2;
 					}
-		
-				}
-				function feed()
-				{
-					ctx.beginPath();
-					ctx.fillStyle = "#ff0000";
-					ctx.fillRect(food[0],food[1],10,10);
-					ctx.fill();
-					ctx.closePath();
-				}
-				function createfood()
-				{
-					food = [Math.round(Math.random(4)*850), Math.round(Math.random(4)*600)];
-				}
-				function is_catched(ax,ay,awidth,aheight,bx,by,bwidth,bheight) {
-					return !(
-					((ay + aheight) < (by)) ||
-					(ay > (by + bheight)) ||
-					((ax + awidth) < bx) ||
-					(ax > (bx + bwidth))
-					);
-				}
-				function draw(pos)
-				{
-					var x = pos[0] * block;
-					var y = pos[1] * block;
-					if(x >= canvas.width || x <= 0 || y >= canvas.height || y<= 0)
-					{
-							document.getElementById('pause').disabled='true';
-							snake.game.status=false;
-							ctx.clearRect(0,0,canvas.width,canvas.height);
-							ctx.font='40px san-serif';
-							ctx.fillText('Game Over',300,250);
-							ctx.font = '20px san-serif';
-							ctx.fillStyle='#000000';
-							ctx.fillText('To Play again Refresh the page or click the Restarts button',200,300);
-							throw ('Game Over');
+					if ((temp=="E")&&(e==0)) {
+					ok=1;
+					if (cf==0) e=1;
+					if (cf==1) e=2;
 					}
-					else
-					{
-						ctx.beginPath();
-						ctx.fillStyle='#000000';
-						ctx.fillRect(x,y,block,block);
-						ctx.closePath();
+					if ((temp=="F")&&(f==0)) {
+					ok=1
+					if (cf==0) f=1;
+					if (cf==1) f=2;
 					}
-				}
-				function pause(elem)
-				{
-					if(snake.game.status)
-					{
-						clearTimeout(snake.game.status);
-						snake.game.status=false;
-						elem.value='Play'
+					if ((temp=="G")&&(g==0)) {
+					ok=1
+					if (cf==0) g=1;
+					if (cf==1) g=2;
 					}
-					else
-					{
-						loop();
-						elem.value='Pause';
+					if ((temp=="H")&&(h==0)) {
+					ok=1;
+					if (cf==0) h=1;
+					if (cf==1) h=2;
 					}
-				}
-				function begin()
-				{
-					loop();
-				}
-				function restart()
-				{
-					location.reload();
-				}
-				function start()
-				{
-					ctx.fillStyle='#000000';
-					ctx.fillRect(0,0,canvas.width,canvas.height);
-					ctx.fillStyle='#ffffff';
-					ctx.font='40px helvatica';
-					ctx.fillText('Vignesh',370,140);
-					ctx.font='20px san-serif';
-					ctx.fillText('presents',395,190);
-					ctx.font='italic 60px san-serif';
-					ctx.fillText('Feed The Snake',240,280);
-					var img = new Image();
-					img.onload = function()
-					{
-						ctx.drawImage(img,300,300,200,200);
-						ctx.fillRect(410,330,10,10);
+					if ((temp=="I")&&(i==0)) {
+					ok=1;
+					if (cf==0) i=1; 
+					if (cf==1) i=2; 
 					}
-					img.src ='snake.png';
-				}
-				function fullscreen()
-				{
-					launchFullscreen(canvas);
-				}
-				return {
-					pause: pause,
-					restart : restart,
-					start : start,
-					begin: begin,
-					fullscreen : fullscreen,
-					adjust : adjust,
-				};
-			})();
-			snake.game.start();
-		}
-		</script>
-		</head>
-		<body>
-		<canvas width="850" height="600" id="canvas" style="border:1px solid #333;" onclick="snake.game.begin();">
-		</canvas>
-		<div id="controls" style="float:right; text-align:center;">
-			<input type="button" id="pause" value="Play" onClick="snake.game.pause(this);" accesskey="p">
-			<input type="button" id="restart" value="Restart" onClick="snake.game.restart();">
-			<br/><br/>
-			<input type="button" id="fullscreen" value="Play Fullscreen" onClick="snake.game.fullscreen();">
-			<br/><br/>
-			<div style="font-size:24px;">
-			Score : 
-			<span id="scoreboard">0</span>
-			</div>
-		</div>
-		</body>
-		</html>
+					}
+					function yourChoice(chName) {
+					pause = 0;
+					if (all!=0) ended();
+					if (all==0) {
+					cf = 0;
+					ok = 0;
+					temp=chName;
+					checkSpace();
+					if (ok==1) {
+					document.images[chName].src = x;
+					}
+					if (ok==0)taken();
+					process();
+					if ((all==0)&&(pause==0)) myChoice();
+					   }
+					}
+					function taken() {
+					alert("This cell in not empty! Try another")
+					pause=1;
+					}
+					function myChoice() {
+					temp="";
+					ok = 0;
+					cf=1;
+					logicTwo();
+					logicThree();
+					checkSpace();
+					while(ok==0) {
+					aRandomNumber=Math.random()
+					comp=Math.round((choice-1)*aRandomNumber)+1;
+					if (comp==1) temp="A";
+					if (comp==2) temp="B";
+					if (comp==3) temp="C";
+					if (comp==4) temp="D";
+					if (comp==5) temp="E";
+					if (comp==6) temp="F";
+					if (comp==7) temp="G";
+					if (comp==8) temp="H";
+					if (comp==9) temp="I";
+					checkSpace();
+					}
+					document.images[temp].src= o;
+					process();
+					}
+					function ended() {
+					alert("Game over! To play once more press a button 'New Game'")
+					}
+					function process() {
+					logicOne();
+					if (all==1){ alert("You win!"); wn++; }
+					if (all==2){ alert("You lose!"); ls++; }
+					if (all==3){ alert("Draw!"); ts++; }
+					if (all!=0) {
+					document.game.you.value = wn;
+					document.game.computer.value = ls;
+					document.game.ties.value = ts;
+					   }
+					}
+					function playAgain() {
+					if (all==0) {
+					if(confirm("Âû óâåðåíû ?")) reset();
+					}
+					if (all>0) reset();
+					}
+					function reset() {
+					all = 0;
+					a = 0;
+					b = 0;
+					c = 0;
+					d = 0;
+					e = 0;
+					f = 0;
+					g = 0;
+					h = 0;
+					i = 0;
+					temp="";
+					ok = 0;
+					cf = 0;
+					choice=9;
+					aRandomNumber = 0;
+					comp = 0;
+					document.images.A.src= blank;
+					document.images.B.src= blank;
+					document.images.C.src= blank;
+					document.images.D.src= blank;
+					document.images.E.src= blank;
+					document.images.F.src= blank;
+					document.images.G.src= blank;
+					document.images.H.src= blank;
+					document.images.I.src= blank;
+					if (t==0) { t=2; myChoice(); }
+					t--;
+					}
+					var ie4 = (document.all) ? true : false;
+					var nn4 = (document.layers) ? true : false;
+					</script> </p>
+					
+					<p><br>
+					</p>
+					
+					<form name="game">
+					  <div align="center"><center><table border="0">
+					<TBODY>
+						<tr>
+						  <td><table border="1" borderColor="#000000" cellPadding="0" cellSpacing="0">
+					<TBODY>
+							<tr>
+							  <td><a href="javascript:yourChoice('A')"><img border="0" height="61" name="A"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('B')"><img border="0" height="61" name="B"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('C')"><img border="0" height="61" name="C"
+							  src="blank.jpg" width="56"></a></td>
+							</tr>
+							<tr>
+							  <td><a href="javascript:yourChoice('D')"><img border="0" height="61" name="D"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('E')"><img border="0" height="61" name="E"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('F')"><img border="0" height="61" name="F"
+							  src="blank.jpg" width="56"></a></td>
+							</tr>
+							<tr>
+							  <td><a href="javascript:yourChoice('G')"><img border="0" height="61" name="G"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('H')"><img border="0" height="61" name="H"
+							  src="blank.jpg" width="56"></a></td>
+							  <td><a href="javascript:yourChoice('I')"><img border="0" height="61" name="I"
+							  src="blank.jpg" width="56"></a></td>
+							</tr>
+					</TBODY>
+						  </table>
+						  </td>
+						  <td><table>
+					<TBODY>
+							<tr colspan="2">
+							  <td><font face="MS Sans Serif" size="1"><b>Score:</b></font></td>
+							</tr>
+							<tr>
+							  <td><font face="MS Sans Serif" size="1"><input name="you" size="5"
+							  style="font-family: MS Sans Serif; font-size: 1"></font></td>
+							  <td><font face="MS Sans Serif" size="1">You</font></td>
+							</tr>
+							<tr>
+							  <td><font face="MS Sans Serif" size="1"><input name="computer" size="5"
+							  style="font-family: MS Sans Serif; font-size: 1"></font></td>
+							  <td><font face="MS Sans Serif" size="1">Computer</font></td>
+							</tr>
+							<tr>
+							  <td><font face="MS Sans Serif" size="1"><input name="ties" size="5"
+							  style="font-family: MS Sans Serif; font-size: 1"></font></td>
+							  <td><font face="MS Sans Serif" size="1">Draw</font></td>
+							</tr>
+					</TBODY>
+						  </table>
+						  </td>
+						</tr>
+					</TBODY>
+					  </table>
+					  </center></div><div align="center"><center><p><input onclick="playAgain();" type="button"
+					  value="New Game"
+					  style="font-family: MS Sans Serif; font-size: 1; font-weight: bold"> </p>
+					  </center></div>
+					</form>
+	</body>
