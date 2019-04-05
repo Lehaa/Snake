@@ -23,6 +23,37 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 			</plugin>
+            		<plugin>
+                		<groupId>org.codehaus.cargo</groupId>
+                		<artifactId>cargo-maven2-plugin</artifactId>
+                		<version>1.2.1</version>
+                		<executions>
+                    			<execution>
+                        			<phase>package</phase>
+                        			<goals>
+                            				<goal>deployer-redeploy</goal>
+                        			</goals>
+                    			</execution>
+				</executions>
+                   		 <configuration>
+                        		<wait>false</wait>
+                        		<container>
+                            			<containerId>tomcat8x</containerId>
+                           			<type>remote</type>
+                        		</container>
+                        		<configuration>
+                            			<type>runtime</type>
+                            			<properties>
+                                			<cargo.hostname>${cargo_host}</cargo.hostname>
+                                			<cargo.remote.username>${cargo_username}</cargo.remote.username>
+                                			<cargo.remote.password>${cargo_password}</cargo.remote.password>
+                                			<cargo.servlet.port>${cargo_port}</cargo.servlet.port>
+                                			<cargo.logging>high</cargo.logging>
+                            			</properties>
+                        		</configuration>
+                    		</configuration>
+                    
+            		</plugin>
 		</plugins>
 	</build>
 
